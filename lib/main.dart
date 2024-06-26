@@ -1,3 +1,4 @@
+import 'package:africredagent/widgets/agendcard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -103,8 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
+          // AgendCard(),
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Agendcard(title: "Agent de terrain",number: 3,icon: "assets/images/market.png",),
             const Text(
               'You have pushed the button this many times:',
             ),
