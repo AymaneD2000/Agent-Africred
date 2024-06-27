@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            //adAgendcard(title: "Agent de terrain",number: 3,icon: "assets/images/market.png",),
             const Text(
               'You have pushed the button this many times:',
             ),
@@ -49,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},

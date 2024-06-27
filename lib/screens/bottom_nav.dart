@@ -63,14 +63,88 @@ class _BottomNavState extends State<BottomNav> {
                       )
                     ],
                   )),
-                  ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 3,
-                      itemBuilder: (context, i) {
-                        return ListTile(
-                          title: Text("Dashboard"),
-                        );
-                      }),
+                  Expanded(
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      children: [
+                        ListTile(
+                          leading: Icon(Icons.dashboard),
+                          title: Text('Tableau de bord'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.calendar_month),
+                          title: Text('Recouvrements'),
+                          onTap: () {},
+                        ),
+                        ExpansionTile(
+                          leading: Icon(Icons.credit_card),
+                          title: Text('Crédits'),
+                          trailing: Chip(
+                            label: Text('747'),
+                            backgroundColor: Colors.green[200],
+                          ),
+                          children: <Widget>[
+                            ListTile(
+                              title: Text('Liste d\'attente'),
+                              trailing: Chip(
+                                label: Text('0'),
+                                backgroundColor: Colors.grey[200],
+                              ),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              title: Text('Crédits en cours'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              title: Text('Crédits soldés'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.schedule),
+                          title: Text('Dûs Journaliers'),
+                          onTap: () {},
+                        ),
+                        ExpansionTile(
+                          leading: Icon(Icons.anchor),
+                          title: Text('Encours'),
+                          children: <Widget>[
+                            ListTile(
+                              title: Text('Enc. Sans Intérêt'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              title: Text('Encours Global'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                        ExpansionTile(
+                          leading: Icon(Icons.account_balance_wallet),
+                          title: Text('Comptes'),
+                          trailing: Chip(
+                            label: Text('337'),
+                            backgroundColor: Colors.green[200],
+                          ),
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.person_4),
+                              title: Text('Clients'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.house),
+                              title: Text('Entreprise'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
