@@ -1,0 +1,166 @@
+import 'package:africredagent/main.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
+class BottomNav extends StatefulWidget {
+  BottomNav({super.key});
+
+  @override
+  State<BottomNav> createState() => _BottomNavState();
+}
+
+class _BottomNavState extends State<BottomNav> {
+  final List<Widget> _pages = [
+    MyHomePage(title: "Flutter Demo Home Page"),
+    MyHomePage(title: 'Flutter Demo Home Page'),
+    MyHomePage(title: 'Flutter Demo Home Page')
+  ];
+  int currentIndex = 0;
+  void onChange(int i) {
+    setState(() {
+      currentIndex = i;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Spacer(),
+              Image.asset(
+                "assets/favicon.png",
+                height: 40,
+                width: 50,
+              ),
+              Spacer(),
+              Icon(Icons.notifications_outlined),
+              Gap(5),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(15)),
+                padding: EdgeInsets.all(2.5),
+                child: Icon(Icons.person, color: Colors.grey[500]),
+              )
+            ],
+          ),
+        ),
+        drawer: Drawer(
+          child: SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                children: [
+                  DrawerHeader(
+                      child: Column(
+                    children: [
+                      Text("Afri"),
+                      Image.asset(
+                        "assets/favicon.png",
+                        height: 70,
+                      )
+                    ],
+                  )),
+                  Expanded(
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      children: [
+                        ListTile(
+                          leading: Icon(Icons.dashboard),
+                          title: Text('Tableau de bord'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.calendar_month),
+                          title: Text('Recouvrements'),
+                          onTap: () {},
+                        ),
+                        ExpansionTile(
+                          leading: Icon(Icons.credit_card),
+                          title: Text('Crédits'),
+                          trailing: Chip(
+                            label: Text('747'),
+                            backgroundColor: Colors.green[200],
+                          ),
+                          children: <Widget>[
+                            ListTile(
+                              title: Text('Liste d\'attente'),
+                              trailing: Chip(
+                                label: Text('0'),
+                                backgroundColor: Colors.grey[200],
+                              ),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              title: Text('Crédits en cours'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              title: Text('Crédits soldés'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.schedule),
+                          title: Text('Dûs Journaliers'),
+                          onTap: () {},
+                        ),
+                        ExpansionTile(
+                          leading: Icon(Icons.anchor),
+                          title: Text('Encours'),
+                          children: <Widget>[
+                            ListTile(
+                              title: Text('Enc. Sans Intérêt'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              title: Text('Encours Global'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                        ExpansionTile(
+                          leading: Icon(Icons.account_balance_wallet),
+                          title: Text('Comptes'),
+                          trailing: Chip(
+                            label: Text('337'),
+                            backgroundColor: Colors.green[200],
+                          ),
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.person_4),
+                              title: Text('Clients'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.house),
+                              title: Text('Entreprise'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        body: _pages[0],
+        bottomNavigationBar: NavigationBar(
+          onDestinationSelected: (value) {
+            onChange(value);
+          },
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          ],
+          selectedIndex: currentIndex,
+        ));
+  }
+}
