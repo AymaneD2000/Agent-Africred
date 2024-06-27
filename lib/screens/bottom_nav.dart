@@ -1,4 +1,5 @@
 import 'package:africredagent/main.dart';
+import 'package:africredagent/screens/recouvrementScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -13,7 +14,8 @@ class _BottomNavState extends State<BottomNav> {
   final List<Widget> _pages = [
     MyHomePage(title: "Flutter Demo Home Page"),
     MyHomePage(title: 'Flutter Demo Home Page'),
-    MyHomePage(title: 'Flutter Demo Home Page')
+    MyHomePage(title: 'Flutter Demo Home Page'),
+    Recouvrementscreen()
   ];
   int currentIndex = 0;
   void onChange(int i) {
@@ -68,14 +70,26 @@ class _BottomNavState extends State<BottomNav> {
                       padding: EdgeInsets.zero,
                       children: [
                         ListTile(
+                          selectedColor: Colors.purple,
                           leading: Icon(Icons.dashboard),
                           title: Text('Tableau de bord'),
-                          onTap: () {},
+                          selected: currentIndex == 0? true:false,
+                          onTap: () {
+                            setState(() {
+                              onChange(0);
+                            });
+                          },
                         ),
                         ListTile(
+                          selectedColor: Colors.purple,
                           leading: Icon(Icons.calendar_month),
                           title: Text('Recouvrements'),
-                          onTap: () {},
+                          selected: currentIndex == 3? true:false,
+                          onTap: () {
+                            setState(() {
+                              onChange(3);
+                            });
+                          },
                         ),
                         ExpansionTile(
                           leading: Icon(Icons.credit_card),
@@ -150,7 +164,7 @@ class _BottomNavState extends State<BottomNav> {
             ),
           ),
         ),
-        body: _pages[0],
+        body: _pages[currentIndex],
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (value) {
             onChange(value);
@@ -160,7 +174,7 @@ class _BottomNavState extends State<BottomNav> {
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           ],
-          selectedIndex: currentIndex,
+          selectedIndex: currentIndex >=3? 0:currentIndex,
         ));
   }
 }
