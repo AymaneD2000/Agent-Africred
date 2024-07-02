@@ -1,8 +1,13 @@
 import 'package:africredagent/screens/bottom_nav.dart';
+import 'package:africredagent/service/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => DataProvider())],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -51,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
