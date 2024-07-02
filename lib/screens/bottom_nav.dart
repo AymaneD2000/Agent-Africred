@@ -1,6 +1,8 @@
 import 'package:africredagent/main.dart';
 import 'package:africredagent/screens/credits/creditsencours.dart';
 import 'package:africredagent/screens/credits/listeattente.dart';
+import 'package:africredagent/screens/dashboard/dashboard.dart';
+import 'package:africredagent/screens/recouvrementScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -13,7 +15,7 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   final List<Widget> _pages = [
-    MyHomePage(title: "Flutter Demo Home Page"),
+    DashBoard(),
     MyHomePage(title: 'Flutter Demo Home Page'),
     MyHomePage(title: 'Flutter Demo Home Page'),
     ListeAttenteScreen(),
@@ -75,7 +77,7 @@ class _BottomNavState extends State<BottomNav> {
                           selectedColor: Colors.purple,
                           leading: Icon(Icons.dashboard),
                           title: Text('Tableau de bord'),
-                          selected: currentIndex == 0? true:false,
+                          selected: currentIndex == 0 ? true : false,
                           onTap: () {
                             setState(() {
                               onChange(0);
@@ -86,7 +88,7 @@ class _BottomNavState extends State<BottomNav> {
                           selectedColor: Colors.purple,
                           leading: Icon(Icons.calendar_month),
                           title: Text('Recouvrements'),
-                          selected: currentIndex == 3? true:false,
+                          selected: currentIndex == 3 ? true : false,
                           onTap: () {
                             setState(() {
                               onChange(3);
@@ -181,7 +183,7 @@ class _BottomNavState extends State<BottomNav> {
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           ],
-          selectedIndex: currentIndex >=3? 0:currentIndex,
+          selectedIndex: currentIndex >= 3 ? 0 : currentIndex,
         ));
   }
 }
