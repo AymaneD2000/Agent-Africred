@@ -1,5 +1,6 @@
 import 'package:africredagent/main.dart';
-import 'package:africredagent/screens/recouvrementScreen.dart';
+import 'package:africredagent/screens/credits/creditsencours.dart';
+import 'package:africredagent/screens/credits/listeattente.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -15,7 +16,8 @@ class _BottomNavState extends State<BottomNav> {
     MyHomePage(title: "Flutter Demo Home Page"),
     MyHomePage(title: 'Flutter Demo Home Page'),
     MyHomePage(title: 'Flutter Demo Home Page'),
-    Recouvrementscreen()
+    ListeAttenteScreen(),
+    CreditsEncoursScreen()
   ];
   int currentIndex = 0;
   void onChange(int i) {
@@ -109,7 +111,12 @@ class _BottomNavState extends State<BottomNav> {
                             ),
                             ListTile(
                               title: Text('Crédits en cours'),
-                              onTap: () {},
+                              selected: currentIndex == 4? true:false,
+                              onTap: () {
+                                setState(() {
+                                onChange(4);
+                              });
+                              },
                             ),
                             ListTile(
                               title: Text('Crédits soldés'),

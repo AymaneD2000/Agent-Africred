@@ -254,10 +254,10 @@
                                                 <action selector="lowercaseWord:" target="-1" id="iUZ-b5-hil"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Capitalize" id="UEZ-Bs-lqG">
+                                        <menuItem title="rotationsize" id="UEZ-Bs-lqG">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="capitalizeWord:" target="-1" id="26H-TL-nsh"/>
+                                                <action selector="rotationsizeWord:" target="-1" id="26H-TL-nsh"/>
                                             </connections>
                                         </menuItem>
                                     </items>
