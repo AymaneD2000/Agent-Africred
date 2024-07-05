@@ -1,8 +1,9 @@
 import 'package:africredagent/main.dart';
 import 'package:africredagent/screens/credits/creditsencours.dart';
+import 'package:africredagent/screens/credits/creditsolder.dart';
 import 'package:africredagent/screens/credits/listeattente.dart';
 import 'package:africredagent/screens/dashboard/dashboard.dart';
-import 'package:africredagent/screens/recouvrementScreen.dart';
+import 'package:africredagent/screens/du_journalier/dujournalier.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -19,7 +20,9 @@ class _BottomNavState extends State<BottomNav> {
     MyHomePage(title: 'Flutter Demo Home Page'),
     MyHomePage(title: 'Flutter Demo Home Page'),
     ListeAttenteScreen(),
-    CreditsEncoursScreen()
+    CreditsEncoursScreen(),
+    CreditsSolderScreen(),
+    DujournalierScreen()
   ];
   int currentIndex = 0;
   void onChange(int i) {
@@ -121,15 +124,25 @@ class _BottomNavState extends State<BottomNav> {
                               },
                             ),
                             ListTile(
+                              selected: currentIndex == 5? true:false,
                               title: Text('Crédits soldés'),
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                onChange(5);
+                              });
+                              },
                             ),
                           ],
                         ),
                         ListTile(
+                          selected: currentIndex == 6? true:false,
                           leading: Icon(Icons.schedule),
                           title: Text('Dûs Journaliers'),
-                          onTap: () {},
+                          onTap: () {
+                            setState(() {
+                                onChange(6);
+                              });
+                          },
                         ),
                         ExpansionTile(
                           leading: Icon(Icons.anchor),

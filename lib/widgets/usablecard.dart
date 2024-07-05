@@ -36,7 +36,7 @@ double? borderRadius;
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          if (iconPath != null) Image.asset(iconPath!, height: 15,),
+          if (iconPath != null) Image.asset(iconPath!, height: 15,color: Colors.white,),
           Gap(5),
           Mytext(text: text,size: textSize,align: textAlign,weight: fontWeight,color: textColor)
         ],
