@@ -1,8 +1,10 @@
 import 'package:africredagent/main.dart';
 import 'package:africredagent/screens/credits/creditsencours.dart';
+import 'package:africredagent/screens/credits/creditsolder.dart';
 import 'package:africredagent/screens/credits/listeattente.dart';
 import 'package:africredagent/screens/dashboard/dashboard.dart';
 import 'package:africredagent/screens/profile.dart';
+import 'package:africredagent/screens/du_journalier/dujournalier.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -15,11 +17,13 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   final List<Widget> _pages = [
-    const DashBoard(),
-    const MyHomePage(title: 'Flutter Demo Home Page'),
-    const MyHomePage(title: 'Flutter Demo Home Page'),
-    const ListeAttenteScreen(),
-    CreditsEncoursScreen()
+    DashBoard(),
+    MyHomePage(title: 'Flutter Demo Home Page'),
+    MyHomePage(title: 'Flutter Demo Home Page'),
+    ListeAttenteScreen(),
+    CreditsEncoursScreen(),
+    CreditsSolderScreen(),
+    DujournalierScreen()
   ];
   int currentIndex = 0;
   void onChange(int i) {
@@ -128,15 +132,25 @@ class _BottomNavState extends State<BottomNav> {
                               },
                             ),
                             ListTile(
-                              title: const Text('Crédits soldés'),
-                              onTap: () {},
+                              selected: currentIndex == 5? true:false,
+                              title: Text('Crédits soldés'),
+                              onTap: () {
+                                setState(() {
+                                onChange(5);
+                              });
+                              },
                             ),
                           ],
                         ),
                         ListTile(
-                          leading: const Icon(Icons.schedule),
-                          title: const Text('Dûs Journaliers'),
-                          onTap: () {},
+                          selected: currentIndex == 6? true:false,
+                          leading: Icon(Icons.schedule),
+                          title: Text('Dûs Journaliers'),
+                          onTap: () {
+                            setState(() {
+                                onChange(6);
+                              });
+                          },
                         ),
                         ExpansionTile(
                           leading: const Icon(Icons.anchor),

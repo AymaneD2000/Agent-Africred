@@ -529,7 +529,7 @@ class _ListeAttenteScreenState extends State<ListeAttenteScreen> {
                 Mytext(
                   text: "Liste   d'attente   :   0 CFA",
                   color: Colors.green,
-                  size: MediaQuery.textScalerOf(context).scale(16),
+                  size: MediaQuery.textScalerOf(context).scale(14),
                   weight: FontWeight.w800,
                 ),
                 Mytext(
