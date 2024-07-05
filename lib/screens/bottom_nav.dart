@@ -3,6 +3,7 @@ import 'package:africredagent/screens/credits/creditsencours.dart';
 import 'package:africredagent/screens/credits/creditsolder.dart';
 import 'package:africredagent/screens/credits/listeattente.dart';
 import 'package:africredagent/screens/dashboard/dashboard.dart';
+import 'package:africredagent/screens/profile.dart';
 import 'package:africredagent/screens/du_journalier/dujournalier.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -37,21 +38,28 @@ class _BottomNavState extends State<BottomNav> {
         appBar: AppBar(
           title: Row(
             children: [
-              Spacer(),
+              const Spacer(),
               Image.asset(
                 "assets/favicon.png",
                 height: 40,
                 width: 50,
               ),
-              Spacer(),
-              Icon(Icons.notifications_outlined),
-              Gap(5),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(15)),
-                padding: EdgeInsets.all(2.5),
-                child: Icon(Icons.person, color: Colors.grey[500]),
+              const Spacer(),
+              const Icon(Icons.notifications_outlined),
+              const Gap(5),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ProfilePage();
+                  }));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey[100],
+                      borderRadius: BorderRadius.circular(15)),
+                  padding: const EdgeInsets.all(2.5),
+                  child: Icon(Icons.person, color: Colors.grey[500]),
+                ),
               )
             ],
           ),
@@ -65,7 +73,7 @@ class _BottomNavState extends State<BottomNav> {
                   DrawerHeader(
                       child: Column(
                     children: [
-                      Text("Afri"),
+                      const Text("Afri"),
                       Image.asset(
                         "assets/favicon.png",
                         height: 70,
@@ -78,8 +86,8 @@ class _BottomNavState extends State<BottomNav> {
                       children: [
                         ListTile(
                           selectedColor: Colors.purple,
-                          leading: Icon(Icons.dashboard),
-                          title: Text('Tableau de bord'),
+                          leading: const Icon(Icons.dashboard),
+                          title: const Text('Tableau de bord'),
                           selected: currentIndex == 0 ? true : false,
                           onTap: () {
                             setState(() {
@@ -89,8 +97,8 @@ class _BottomNavState extends State<BottomNav> {
                         ),
                         ListTile(
                           selectedColor: Colors.purple,
-                          leading: Icon(Icons.calendar_month),
-                          title: Text('Recouvrements'),
+                          leading: const Icon(Icons.calendar_month),
+                          title: const Text('Recouvrements'),
                           selected: currentIndex == 3 ? true : false,
                           onTap: () {
                             setState(() {
@@ -99,28 +107,28 @@ class _BottomNavState extends State<BottomNav> {
                           },
                         ),
                         ExpansionTile(
-                          leading: Icon(Icons.credit_card),
-                          title: Text('Crédits'),
+                          leading: const Icon(Icons.credit_card),
+                          title: const Text('Crédits'),
                           trailing: Chip(
-                            label: Text('747'),
+                            label: const Text('747'),
                             backgroundColor: Colors.green[200],
                           ),
                           children: <Widget>[
                             ListTile(
-                              title: Text('Liste d\'attente'),
+                              title: const Text('Liste d\'attente'),
                               trailing: Chip(
-                                label: Text('0'),
+                                label: const Text('0'),
                                 backgroundColor: Colors.grey[200],
                               ),
                               onTap: () {},
                             ),
                             ListTile(
-                              title: Text('Crédits en cours'),
-                              selected: currentIndex == 4? true:false,
+                              title: const Text('Crédits en cours'),
+                              selected: currentIndex == 4 ? true : false,
                               onTap: () {
                                 setState(() {
-                                onChange(4);
-                              });
+                                  onChange(4);
+                                });
                               },
                             ),
                             ListTile(
@@ -145,35 +153,35 @@ class _BottomNavState extends State<BottomNav> {
                           },
                         ),
                         ExpansionTile(
-                          leading: Icon(Icons.anchor),
-                          title: Text('Encours'),
+                          leading: const Icon(Icons.anchor),
+                          title: const Text('Encours'),
                           children: <Widget>[
                             ListTile(
-                              title: Text('Enc. Sans Intérêt'),
+                              title: const Text('Enc. Sans Intérêt'),
                               onTap: () {},
                             ),
                             ListTile(
-                              title: Text('Encours Global'),
+                              title: const Text('Encours Global'),
                               onTap: () {},
                             ),
                           ],
                         ),
                         ExpansionTile(
-                          leading: Icon(Icons.account_balance_wallet),
-                          title: Text('Comptes'),
+                          leading: const Icon(Icons.account_balance_wallet),
+                          title: const Text('Comptes'),
                           trailing: Chip(
-                            label: Text('337'),
+                            label: const Text('337'),
                             backgroundColor: Colors.green[200],
                           ),
                           children: [
                             ListTile(
-                              leading: Icon(Icons.person_4),
-                              title: Text('Clients'),
+                              leading: const Icon(Icons.person_4),
+                              title: const Text('Clients'),
                               onTap: () {},
                             ),
                             ListTile(
-                              leading: Icon(Icons.house),
-                              title: Text('Entreprise'),
+                              leading: const Icon(Icons.house),
+                              title: const Text('Entreprise'),
                               onTap: () {},
                             ),
                           ],
@@ -192,9 +200,9 @@ class _BottomNavState extends State<BottomNav> {
             onChange(value);
           },
           destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            const NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            const NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            const NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           ],
           selectedIndex: currentIndex >= 3 ? 0 : currentIndex,
         ));

@@ -1,6 +1,8 @@
 import 'package:africredagent/const/colors.dart';
 import 'package:africredagent/screens/dashboard/chart.dart';
+import 'package:africredagent/screens/dashboard/globale_state.dart';
 import 'package:africredagent/screens/dashboard/pie_chart.dart';
+import 'package:africredagent/screens/dashboard/searchPage.dart';
 import 'package:africredagent/screens/dashboard/verification_page.dart';
 import 'package:africredagent/service/provider.dart';
 import 'package:africredagent/widgets/myText.dart';
@@ -96,13 +98,21 @@ class _DashBoardState extends State<DashBoard> {
                     ),
                   ),
                   const Gap(8),
-                  Container(
-                    height: siz.height * 0.07,
-                    width: siz.height * 0.07,
-                    decoration: BoxDecoration(
-                        color: primaryPurple,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Icon(Icons.search),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Searchpage();
+                      }));
+                    },
+                    child: Container(
+                      height: siz.height * 0.07,
+                      width: siz.height * 0.07,
+                      decoration: BoxDecoration(
+                          color: primaryPurple,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: const Icon(Icons.search),
+                    ),
                   )
                 ],
               ),
@@ -207,6 +217,11 @@ class _DashBoardState extends State<DashBoard> {
             ),
             const Gap(5),
             DashBordBoxe(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const GlobaleState();
+                }));
+              },
               siz: siz,
               text: "ETAT GLOBAL",
               boxColor: primaryPurple,
