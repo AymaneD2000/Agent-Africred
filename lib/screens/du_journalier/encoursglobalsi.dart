@@ -1,124 +1,203 @@
+import 'package:africredagent/screens/credits/rotation.dart';
+import 'package:africredagent/widgets/dropdownButton.dart';
+import 'package:africredagent/widgets/loanrequest.dart';
 import 'package:africredagent/widgets/myText.dart';
 import 'package:africredagent/widgets/usablecard.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class Rotation extends StatefulWidget {
-  Rotation({super.key});
+class EncourGlobalSIScreen extends StatefulWidget {
+  const EncourGlobalSIScreen({super.key});
 
   @override
-  State<Rotation> createState() => _RotationState();
+  State<EncourGlobalSIScreen> createState() => _EncourGlobalSIScreenState();
 }
 
-class _RotationState extends State<Rotation> {
-    int currentPage = 0;
-    final int itemsPerPage = 6;
+class _EncourGlobalSIScreenState extends State<EncourGlobalSIScreen> {
+  int currentPage = 0;
+  final int itemsPerPage = 6;
+
   @override
   Widget build(BuildContext context) {
     final List<DataItem> items = [
       DataItem(
-        client: 'Nandy Kassoke',
+        beneficiaire: 'Nandy Kassoke',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '26 000 CFA',
+        capital: '432 423 CFA',
+        fraisDeblocage: '30 270 CFA',
+        renouvellement: '4 fois',
+        dateDeblocage: 'À DÉFINIR',
+        nbreJours: '50 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Veronica Akpan',
+        beneficiaire: 'Veronica Akpan',
         marche: 'Allah Minai Sugu',
-        rotations: '123 456 CFA',
-        rentabilite: '20 000 CFA',
+        capital: '123 456 CFA',
+        fraisDeblocage: '20 000 CFA',
+        renouvellement: '2 fois',
+        dateDeblocage: '01-01-2023',
+        nbreJours: '30 jours',
+        statut: 'Terminé',
+        action: 'Supprimer',
         image: 'assets/images/profile-user.png',
       ),
       DataItem(
-        client: 'Kadia Doumbia',
+        beneficiaire: 'Kadia Doumbia',
         marche: 'Allah Minai Sugu',
-        rotations: '3 fois / 7',
-        rentabilite: '10 000 CFA',
+        capital: '78 900 CFA',
+        fraisDeblocage: '10 000 CFA',
+        renouvellement: '1 fois',
+        dateDeblocage: '15-03-2023',
+        nbreJours: '20 jours',
+        statut: 'En cours',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Assetou Toure',
+        beneficiaire: 'Assetou Toure',
         marche: 'Allah Minai Sugu',
-        rotations: '2 fois / 7',
-        rentabilite: '50 000 CFA',
+        capital: '567 890 CFA',
+        fraisDeblocage: '50 000 CFA',
+        renouvellement: '5 fois',
+        dateDeblocage: '20-02-2023',
+        nbreJours: '40 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Amadou Bah',
+        beneficiaire: 'Amadou Bah',
         marche: 'Allah Minai Sugu',
-        rotations: '5 fois / 7',
-        rentabilite: '15 000 CFA',
+        capital: '98 765 CFA',
+        fraisDeblocage: '15 000 CFA',
+        renouvellement: '3 fois',
+        dateDeblocage: '01-04-2023',
+        nbreJours: '60 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/profile-user.png',
       ),
       DataItem(
-        client: 'Nandy Kassoke',
+        beneficiaire: 'Nandy Kassoke',
         marche: 'Allah Minai Sugu',
-        rotations: '6 fois / 7',
-        rentabilite: '30 270 CFA',
+        capital: '432 423 CFA',
+        fraisDeblocage: '30 270 CFA',
+        renouvellement: '4 fois',
+        dateDeblocage: 'À DÉFINIR',
+        nbreJours: '50 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Veronica Akpan',
+        beneficiaire: 'Veronica Akpan',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '20 000 CFA',
+        capital: '123 456 CFA',
+        fraisDeblocage: '20 000 CFA',
+        renouvellement: '2 fois',
+        dateDeblocage: '01-01-2023',
+        nbreJours: '30 jours',
+        statut: 'Terminé',
+        action: 'Supprimer',
         image: 'assets/images/profile-user.png',
       ),
       DataItem(
-        client: 'Kadia Doumbia',
+        beneficiaire: 'Kadia Doumbia',
         marche: 'Allah Minai Sugu',
-        rotations: '2 fois / 7',
-        rentabilite: '10 000 CFA',
+        capital: '78 900 CFA',
+        fraisDeblocage: '10 000 CFA',
+        renouvellement: '1 fois',
+        dateDeblocage: '15-03-2023',
+        nbreJours: '20 jours',
+        statut: 'En cours',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Assetou Toure',
+        beneficiaire: 'Assetou Toure',
         marche: 'Allah Minai Sugu',
-        rotations: '7 fois / 7',
-        rentabilite: '50 000 CFA',
+        capital: '567 890 CFA',
+        fraisDeblocage: '50 000 CFA',
+        renouvellement: '5 fois',
+        dateDeblocage: '20-02-2023',
+        nbreJours: '40 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Amadou Bah',
+        beneficiaire: 'Amadou Bah',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '15 000 CFA',
+        capital: '98 765 CFA',
+        fraisDeblocage: '15 000 CFA',
+        renouvellement: '3 fois',
+        dateDeblocage: '01-04-2023',
+        nbreJours: '60 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/profile-user.png',
       ),
       DataItem(
-        client: 'Nandy Kassoke',
+        beneficiaire: 'Nandy Kassoke',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '30 270 CFA',
+        capital: '432 423 CFA',
+        fraisDeblocage: '30 270 CFA',
+        renouvellement: '4 fois',
+        dateDeblocage: 'À DÉFINIR',
+        nbreJours: '50 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Veronica Akpan',
+        beneficiaire: 'Veronica Akpan',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '20 000 CFA',
+        capital: '123 456 CFA',
+        fraisDeblocage: '20 000 CFA',
+        renouvellement: '2 fois',
+        dateDeblocage: '01-01-2023',
+        nbreJours: '30 jours',
+        statut: 'Terminé',
+        action: 'Supprimer',
         image: 'assets/images/profile-user.png',
       ),
       DataItem(
-        client: 'Kadia Doumbia',
+        beneficiaire: 'Kadia Doumbia',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '10 000 CFA',
+        capital: '78 900 CFA',
+        fraisDeblocage: '10 000 CFA',
+        renouvellement: '1 fois',
+        dateDeblocage: '15-03-2023',
+        nbreJours: '20 jours',
+        statut: 'En cours',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Assetou Toure',
+        beneficiaire: 'Assetou Toure',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '50 000 CFA',
+        capital: '567 890 CFA',
+        fraisDeblocage: '50 000 CFA',
+        renouvellement: '5 fois',
+        dateDeblocage: '20-02-2023',
+        nbreJours: '40 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/women.jpg',
       ),
       DataItem(
-        client: 'Amadou Bah',
+        beneficiaire: 'Amadou Bah',
         marche: 'Allah Minai Sugu',
-        rotations: '1 fois / 7',
-        rentabilite: '15 000 CFA',
+        capital: '98 765 CFA',
+        fraisDeblocage: '15 000 CFA',
+        renouvellement: '3 fois',
+        dateDeblocage: '01-04-2023',
+        nbreJours: '60 jours',
+        statut: 'En attente',
+        action: 'Supprimer',
         image: 'assets/images/profile-user.png',
       ),
     ];
@@ -159,25 +238,32 @@ class _RotationState extends State<Rotation> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Mytext(
-                  text: "LES ROTATIONS",
+                  text: "Encours   Sans   Intérêt   :   1 124 570 CFA ",
                   color: Colors.green,
                   size: MediaQuery.textScalerOf(context).scale(14),
                   weight: FontWeight.w800,
                 ),
-                Mytext(
-                  text: "Les rotations",
-                  color: Colors.grey,
-                  size: MediaQuery.textScalerOf(context).scale(12),
-                  weight: FontWeight.w400,
-                ),
+                // Mytext(
+                //   text: "État Encours Global S.I",
+                //   color: Colors.grey,
+                //   size: MediaQuery.textScalerOf(context).scale(12),
+                //   weight: FontWeight.w400,
+                // ),
               ],
             ),
-            UsableCard(
-              borderRadius: 4,
-              text: "LISTE D'ATTENTE",
-              cardColor: Colors.blue,
-              textColor: Colors.white,
+            GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: UsableCard(
+                borderRadius: 4,
+                iconPath: "assets/images/office-push-pin.png",
+                text: "ENCOURS GLOBAL",
+                cardColor: Color(0xff5664d2),
+                textColor: Colors.white,
+              ),
             ),
+            Spacer(),
             Container(
               padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
               height: MediaQuery.of(context).size.height * 0.65,
@@ -201,7 +287,10 @@ class _RotationState extends State<Rotation> {
                         textColor: Colors.white,
                       ),
                       Spacer(),
-                      Row(
+                    ],
+                  ),
+                  Gap(15),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Mytext(text: "Search:"),
@@ -213,8 +302,6 @@ class _RotationState extends State<Rotation> {
                           decoration: InputDecoration(border: OutlineInputBorder()),
                         ),
                       ),
-                    ],
-                  ),
                     ],
                   ),
                   DataTable(
@@ -262,7 +349,7 @@ class _RotationState extends State<Rotation> {
                           ),
                           DataCell(
                             onTap: () => showDataItemDialog(context, paginatedItems[i]),
-                            Text(paginatedItems[i].client)
+                            Text(paginatedItems[i].beneficiaire)
                             ),
                           DataCell(
                             onTap: () => showDataItemDialog(context, paginatedItems[i]),
@@ -308,12 +395,13 @@ class _RotationState extends State<Rotation> {
       ),
     );
   }
+
   void showDataItemDialog(BuildContext context, DataItem dataItem) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(dataItem.client),
+          title: Text(dataItem.beneficiaire),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -326,10 +414,13 @@ class _RotationState extends State<Rotation> {
                   ),
                 ),
                 Gap(10),
-                DataItemDetailRow(label: 'Marché:', value: dataItem.marche),
-                DataItemDetailRow(label: 'Client:', value: dataItem.client, textColor: Color(0xfffcb92c),),
-                DataItemDetailRow(label: 'Rentabilité en 2024', value: dataItem.rentabilite),
-                DataItemDetailRow(label: 'Rotations en 2024:', value: dataItem.rotations),
+                DataItemDetailRow(label: 'Market:', value: dataItem.marche),
+                DataItemDetailRow(label: 'Capital:', value: dataItem.capital, textColor: Color(0xfffcb92c),),
+                DataItemDetailRow(label: 'Frais de Blocage:', value: dataItem.fraisDeblocage),
+                DataItemDetailRow(label: 'Renouvellement:', value: dataItem.renouvellement),
+                DataItemDetailRow(label: 'Date de Blocage:', value: dataItem.dateDeblocage),
+                DataItemDetailRow(label: 'Number of Days:', value: dataItem.nbreJours),
+                DataItemDetailRow(label: 'Status:', value: dataItem.statut, textColor: Color(0xfffcb92c),),
               ],
             ),
           ),
@@ -381,17 +472,27 @@ class DataItemDetailRow extends StatelessWidget {
 }
 
 class DataItem {
-  final String client;
+  final String beneficiaire;
   final String marche;
-  final String rotations;
-  final String rentabilite;
+  final String capital;
+  final String fraisDeblocage;
+  final String renouvellement;
+  final String dateDeblocage;
+  final String nbreJours;
+  final String statut;
+  final String action;
   final String image;
 
   DataItem({
-    required this.client,
+    required this.beneficiaire,
     required this.marche,
-    required this.rotations,
-    required this.rentabilite,
+    required this.capital,
+    required this.fraisDeblocage,
+    required this.renouvellement,
+    required this.dateDeblocage,
+    required this.nbreJours,
+    required this.statut,
+    required this.action,
     required this.image,
   });
 }

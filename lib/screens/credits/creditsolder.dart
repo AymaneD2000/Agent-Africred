@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
-class CreditsEncoursScreen extends StatefulWidget {
-  CreditsEncoursScreen({super.key});
+class CreditsSolderScreen extends StatefulWidget {
+  CreditsSolderScreen({super.key});
 
   @override
-  State<CreditsEncoursScreen> createState() => _CreditsEncoursScreenState();
+  State<CreditsSolderScreen> createState() => _CreditsSolderScreenState();
 }
 
-class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
+class _CreditsSolderScreenState extends State<CreditsSolderScreen> {
   int currentPage = 0;
   final int itemsPerPage = 6;
     final TextEditingController _dateController = TextEditingController();
@@ -182,13 +182,13 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Mytext(
-                  text: "Crédits   encours   :   2 600 000 CFA",
+                  text: "Crédits soldés : 2 600 000 CFA",
                   color: Color(0xff1cbb8c),
                   size: MediaQuery.textScalerOf(context).scale(14),
                   weight: FontWeight.w800,
                 ),
                 Mytext(
-                  text: "Crédits   encours",
+                  text: "Crédits soldés",
                   color: Colors.grey,
                   size: MediaQuery.textScalerOf(context).scale(12),
                   weight: FontWeight.w400,

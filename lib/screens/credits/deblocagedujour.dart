@@ -1,4 +1,3 @@
-import 'package:africredagent/screens/credits/deblocagedujour.dart';
 import 'package:africredagent/screens/credits/rotation.dart';
 import 'package:africredagent/widgets/dropdownButton.dart';
 import 'package:africredagent/widgets/loanrequest.dart';
@@ -8,16 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
-class CreditsEncoursScreen extends StatefulWidget {
-  CreditsEncoursScreen({super.key});
+class DeblocageJourScreen extends StatefulWidget {
+  DeblocageJourScreen({super.key});
 
   @override
-  State<CreditsEncoursScreen> createState() => _CreditsEncoursScreenState();
+  State<DeblocageJourScreen> createState() => _DeblocageJourScreenState();
 }
 
-class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
+class _DeblocageJourScreenState extends State<DeblocageJourScreen> {
   int currentPage = 0;
-  final int itemsPerPage = 6;
+  final int itemsPerPage = 8;
     final TextEditingController _dateController = TextEditingController();
   DateTime? _selectedDate;
 
@@ -174,6 +173,28 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
 
     return Scaffold(
       backgroundColor: Color(0xFFF1F5F7),
+      appBar: AppBar(
+        title: Row(
+            children: [
+              Spacer(),
+              Image.asset(
+                "assets/favicon.png",
+                height: 40,
+                width: 50,
+              ),
+              Spacer(),
+              Icon(Icons.notifications_outlined),
+              Gap(5),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(15)),
+                padding: EdgeInsets.all(2.5),
+                child: Icon(Icons.person, color: Colors.grey[500]),
+              )
+            ],
+          ),
+      ),
       body: Container(
         padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.02, left: MediaQuery.of(context).size.width * 0.02),
         child: Column(
@@ -196,19 +217,6 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
               ],
             ),
             Gap(5),
-            Container(
-              alignment: Alignment.center,
-              //height: 40,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Color(0xff5664d2),), 
-                child: DropdownMenu(
-                   inputDecorationTheme: 
-                     InputDecorationTheme(iconColor: Colors.white, hintStyle: TextStyle(color: Colors.white, fontSize: 15)),
-                   textStyle: TextStyle(color: Colors.white),
-                   dropdownMenuEntries: list,
-                   //menuStyle: MenuStyle(backgroundColor:WidgetStatePropertyAll(Colors.white) , surfaceTintColor: WidgetStatePropertyAll(Colors.white)),
-                   hintText: "ABEYAN FOU",
-                   //textStyle: TextStyle(color: Colors.black),
-                   )),
               UsableCard(
               borderRadius: 4,
               iconPath: "assets/images/filter.png",
@@ -271,7 +279,7 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context)=>DeblocageJourScreen()));
+                  MaterialPageRoute(builder: (context)=>Rotation()));
               },
               child: UsableCard(
                 borderRadius: 4,
@@ -283,7 +291,7 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
             Spacer(),
             Container(
               padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: MediaQuery.of(context).size.height * 0.7,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(color: Colors.white),
               child: Column(
