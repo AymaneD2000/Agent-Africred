@@ -20,6 +20,7 @@ class _BottomNavState extends State<BottomNav> {
     DashBoard(),
     MyHomePage(title: 'Flutter Demo Home Page'),
     MyHomePage(title: 'Flutter Demo Home Page'),
+    Container(child: Text("Recouvrement"),),
     ListeAttenteScreen(),
     CreditsEncoursScreen(),
     CreditsSolderScreen(),
@@ -115,19 +116,25 @@ class _BottomNavState extends State<BottomNav> {
                           ),
                           children: <Widget>[
                             ListTile(
+                              selected: currentIndex == 4 ? true : false,
                               title: const Text('Liste d\'attente'),
                               trailing: Chip(
                                 label: const Text('0'),
+                                
                                 backgroundColor: Colors.grey[200],
                               ),
-                              onTap: () {},
-                            ),
-                            ListTile(
-                              title: const Text('Crédits en cours'),
-                              selected: currentIndex == 4 ? true : false,
                               onTap: () {
                                 setState(() {
                                   onChange(4);
+                                });
+                              },
+                            ),
+                            ListTile(
+                              title: const Text('Crédits en cours'),
+                              selected: currentIndex == 5 ? true : false,
+                              onTap: () {
+                                setState(() {
+                                  onChange(5);
                                 });
                               },
                             ),
