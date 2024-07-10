@@ -5,6 +5,7 @@ import 'package:africredagent/screens/credits/listeattente.dart';
 import 'package:africredagent/screens/dashboard/dashboard.dart';
 import 'package:africredagent/screens/profile.dart';
 import 'package:africredagent/screens/du_journalier/dujournalier.dart';
+import 'package:africredagent/screens/recouvrement/recouvrement.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -17,10 +18,10 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   final List<Widget> _pages = [
-    DashBoard(),
-    MyHomePage(title: 'Flutter Demo Home Page'),
-    MyHomePage(title: 'Flutter Demo Home Page'),
-    Container(child: Text("Recouvrement"),),
+    const DashBoard(),
+    const MyHomePage(title: 'Flutter Demo Home Page'),
+    const MyHomePage(title: 'Flutter Demo Home Page'),
+    Recouvrement(),
     ListeAttenteScreen(),
     CreditsEncoursScreen(),
     CreditsSolderScreen(),
@@ -31,40 +32,13 @@ class _BottomNavState extends State<BottomNav> {
     setState(() {
       currentIndex = i;
     });
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              const Spacer(),
-              Image.asset(
-                "assets/favicon.png",
-                height: 40,
-                width: 50,
-              ),
-              const Spacer(),
-              const Icon(Icons.notifications_outlined),
-              const Gap(5),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return ProfilePage();
-                  }));
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(15)),
-                  padding: const EdgeInsets.all(2.5),
-                  child: Icon(Icons.person, color: Colors.grey[500]),
-                ),
-              )
-            ],
-          ),
-        ),
+        appBar: MyAppBar().appBar(context),
         drawer: Drawer(
           child: SingleChildScrollView(
             child: Container(
@@ -120,7 +94,6 @@ class _BottomNavState extends State<BottomNav> {
                               title: const Text('Liste d\'attente'),
                               trailing: Chip(
                                 label: const Text('0'),
-                                
                                 backgroundColor: Colors.grey[200],
                               ),
                               onTap: () {
@@ -139,24 +112,24 @@ class _BottomNavState extends State<BottomNav> {
                               },
                             ),
                             ListTile(
-                              selected: currentIndex == 5? true:false,
+                              selected: currentIndex == 5 ? true : false,
                               title: Text('Crédits soldés'),
                               onTap: () {
                                 setState(() {
-                                onChange(5);
-                              });
+                                  onChange(5);
+                                });
                               },
                             ),
                           ],
                         ),
                         ListTile(
-                          selected: currentIndex == 6? true:false,
+                          selected: currentIndex == 6 ? true : false,
                           leading: Icon(Icons.schedule),
                           title: Text('Dûs Journaliers'),
                           onTap: () {
                             setState(() {
-                                onChange(6);
-                              });
+                              onChange(6);
+                            });
                           },
                         ),
                         ExpansionTile(
@@ -213,5 +186,74 @@ class _BottomNavState extends State<BottomNav> {
           ],
           selectedIndex: currentIndex >= 3 ? 0 : currentIndex,
         ));
+  }
+}
+
+class MyAppBar {
+  AppBar appBar(BuildContext context) {
+    return AppBar(
+      title: Row(
+        children: [
+          const Spacer(),
+          Image.asset(
+            "assets/favicon.png",
+            height: 40,
+            width: 50,
+          ),
+          const Spacer(),
+          const Icon(Icons.notifications_outlined),
+          const Gap(5),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ProfilePage();
+              }));
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(15)),
+              padding: const EdgeInsets.all(2.5),
+              child: Icon(Icons.person, color: Colors.grey[500]),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class AppBarWidget extends AppBar {
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Row(
+        children: [
+          const Spacer(),
+          Image.asset(
+            "assets/favicon.png",
+            height: 40,
+            width: 50,
+          ),
+          const Spacer(),
+          const Icon(Icons.notifications_outlined),
+          const Gap(5),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ProfilePage();
+              }));
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(15)),
+              padding: const EdgeInsets.all(2.5),
+              child: Icon(Icons.person, color: Colors.grey[500]),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

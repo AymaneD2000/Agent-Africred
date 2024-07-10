@@ -1,7 +1,4 @@
 import 'package:africredagent/screens/credits/deblocagedujour.dart';
-import 'package:africredagent/screens/credits/rotation.dart';
-import 'package:africredagent/widgets/dropdownButton.dart';
-import 'package:africredagent/widgets/loanrequest.dart';
 import 'package:africredagent/widgets/myText.dart';
 import 'package:africredagent/widgets/usablecard.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +15,10 @@ class CreditsEncoursScreen extends StatefulWidget {
 class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
   int currentPage = 0;
   final int itemsPerPage = 6;
-    final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
   DateTime? _selectedDate;
 
-    @override
+  @override
   void dispose() {
     _dateController.dispose();
     super.dispose();
@@ -42,14 +39,13 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
     }
   }
 
-  List<DropdownMenuEntry> list =[
-    DropdownMenuEntry(
-      value: 'ABEYAN FOU', label: 'ABEYAN FOU')
+  List<DropdownMenuEntry> list = [
+    DropdownMenuEntry(value: 'ABEYAN FOU', label: 'ABEYAN FOU')
   ];
 
   String? selectedValue;
   // final List<String> itemss = [
-    
+
   // ];
 
   String truncateText(String text, int length) {
@@ -78,7 +74,7 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
         nbreJours: '50 jours',
         statut: 'En attente',
         action: 'Supprimer',
-        image: 'assets/images/women.jpg',  
+        image: 'assets/images/women.jpg',
       ),
       DataItem(
         beneficiaire: 'Nandy Kassoke',
@@ -95,7 +91,7 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
         nbreJours: '50 jours',
         statut: 'En attente',
         action: 'Supprimer',
-        image: 'assets/images/women.jpg',  
+        image: 'assets/images/women.jpg',
       ),
       DataItem(
         beneficiaire: 'Nandy Kassoke',
@@ -112,7 +108,7 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
         nbreJours: '50 jours',
         statut: 'En attente',
         action: 'Supprimer',
-        image: 'assets/images/women.jpg',  
+        image: 'assets/images/women.jpg',
       ),
       DataItem(
         beneficiaire: 'Nandy Kassoke',
@@ -129,7 +125,7 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
         nbreJours: '50 jours',
         statut: 'En attente',
         action: 'Supprimer',
-        image: 'assets/images/women.jpg',  
+        image: 'assets/images/women.jpg',
       ),
       // DataItem(
       //   beneficiaire: 'Nandy Kassoke',
@@ -146,7 +142,7 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
       //   nbreJours: '50 jours',
       //   statut: 'En attente',
       //   action: 'Supprimer',
-      //   image: 'assets/images/women.jpg',  
+      //   image: 'assets/images/women.jpg',
       // ),
       // DataItem(
       //   beneficiaire: 'Nandy Kassoke',
@@ -163,19 +159,21 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
       //   nbreJours: '50 jours',
       //   statut: 'En attente',
       //   action: 'Supprimer',
-      //   image: 'assets/images/women.jpg',  
+      //   image: 'assets/images/women.jpg',
       // ),
-
     ];
     Size siz = MediaQuery.of(context).size;
     int totalPages = (items.length / itemsPerPage).ceil();
 
-    List<DataItem> paginatedItems = items.skip(currentPage * itemsPerPage).take(itemsPerPage).toList();
+    List<DataItem> paginatedItems =
+        items.skip(currentPage * itemsPerPage).take(itemsPerPage).toList();
 
     return Scaffold(
       backgroundColor: Color(0xFFF1F5F7),
       body: Container(
-        padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.02, left: MediaQuery.of(context).size.width * 0.02),
+        padding: EdgeInsets.only(
+            right: MediaQuery.of(context).size.width * 0.02,
+            left: MediaQuery.of(context).size.width * 0.02),
         child: Column(
           children: [
             Row(
@@ -197,19 +195,23 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
             ),
             Gap(5),
             Container(
-              alignment: Alignment.center,
-              //height: 40,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Color(0xff5664d2),), 
+                alignment: Alignment.center,
+                //height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color(0xff5664d2),
+                ),
                 child: DropdownMenu(
-                   inputDecorationTheme: 
-                     InputDecorationTheme(iconColor: Colors.white, hintStyle: TextStyle(color: Colors.white, fontSize: 15)),
-                   textStyle: TextStyle(color: Colors.white),
-                   dropdownMenuEntries: list,
-                   //menuStyle: MenuStyle(backgroundColor:WidgetStatePropertyAll(Colors.white) , surfaceTintColor: WidgetStatePropertyAll(Colors.white)),
-                   hintText: "ABEYAN FOU",
-                   //textStyle: TextStyle(color: Colors.black),
-                   )),
-              UsableCard(
+                  inputDecorationTheme: InputDecorationTheme(
+                      iconColor: Colors.white,
+                      hintStyle: TextStyle(color: Colors.white, fontSize: 15)),
+                  textStyle: TextStyle(color: Colors.white),
+                  dropdownMenuEntries: list,
+                  //menuStyle: MenuStyle(backgroundColor:WidgetStatePropertyAll(Colors.white) , surfaceTintColor: WidgetStatePropertyAll(Colors.white)),
+                  hintText: "ABEYAN FOU",
+                  //textStyle: TextStyle(color: Colors.black),
+                )),
+            UsableCard(
               borderRadius: 4,
               iconPath: "assets/images/filter.png",
               text: "Filtrer",
@@ -221,57 +223,64 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Card(
-                    color: Colors.white,
-                    elevation: 0,
-                    child: Container(
-                      height: siz.height * 0.05,
-                      width: siz.width * 0.39,
-                      padding: const EdgeInsets.all(4.0),
-                      child: TextFormField(
-                        controller: _dateController,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'mm/dd/yyyy',
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.calendar_today,size: 18,),
-                            onPressed: () => _selectDate(context),
+                  color: Colors.white,
+                  elevation: 0,
+                  child: Container(
+                    height: siz.height * 0.05,
+                    width: siz.width * 0.39,
+                    padding: const EdgeInsets.all(4.0),
+                    child: TextFormField(
+                      controller: _dateController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'mm/dd/yyyy',
+                        suffixIcon: IconButton(
+                          icon: const Icon(
+                            Icons.calendar_today,
+                            size: 18,
                           ),
+                          onPressed: () => _selectDate(context),
                         ),
-                        readOnly: true,
-                        onTap: () => _selectDate(context),
                       ),
+                      readOnly: true,
+                      onTap: () => _selectDate(context),
                     ),
                   ),
-                  Card(
-                    color: Colors.white,
-                    elevation: 0,
-                    child: Container(
-                      height: siz.height * 0.05,
-                      width: siz.width * 0.39,
-                      padding: const EdgeInsets.all(4.0),
-                      child: TextFormField(
-                        controller: _dateController,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'mm/dd/yyyy',
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.calendar_today,size: 18,),
-                            onPressed: () => _selectDate(context),
+                ),
+                Card(
+                  color: Colors.white,
+                  elevation: 0,
+                  child: Container(
+                    height: siz.height * 0.05,
+                    width: siz.width * 0.39,
+                    padding: const EdgeInsets.all(4.0),
+                    child: TextFormField(
+                      controller: _dateController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'mm/dd/yyyy',
+                        suffixIcon: IconButton(
+                          icon: const Icon(
+                            Icons.calendar_today,
+                            size: 18,
                           ),
+                          onPressed: () => _selectDate(context),
                         ),
-                        readOnly: true,
-                        onTap: () => _selectDate(context),
                       ),
+                      readOnly: true,
+                      onTap: () => _selectDate(context),
                     ),
-                  )
+                  ),
+                )
               ],
             ),
             Gap(5),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context)=>DeblocageJourScreen()));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DeblocageJourScreen()));
               },
               child: UsableCard(
                 borderRadius: 4,
@@ -305,29 +314,42 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
                       ),
                       Spacer(),
                       Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Mytext(text: "Search:"),
-                      Gap(8),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.03,
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        child: TextField(
-                          decoration: InputDecoration(border: OutlineInputBorder()),
-                        ),
-                      ),
-                    ],
-                  )
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Mytext(text: "Search:"),
+                          Gap(8),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03,
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: TextField(
+                              decoration:
+                                  InputDecoration(border: OutlineInputBorder()),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                   Gap(15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Afficher par : ", style: TextStyle(fontWeight: FontWeight.w500),),
-                      UsableCard(text: "CLient", cardColor: Color(0xff1cbb8c), iconPath: "assets/images/profile.png",textColor: Colors.white,),
+                      Text(
+                        "Afficher par : ",
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                      UsableCard(
+                        text: "CLient",
+                        cardColor: Color(0xff1cbb8c),
+                        iconPath: "assets/images/profile.png",
+                        textColor: Colors.white,
+                      ),
                       Gap(8),
-                      UsableCard(text: "Marche", cardColor: Color(0xff1cbb8c), iconPath: "assets/images/market icon.png",textColor: Colors.white)
+                      UsableCard(
+                          text: "Marche",
+                          cardColor: Color(0xff1cbb8c),
+                          iconPath: "assets/images/market icon.png",
+                          textColor: Colors.white)
                     ],
                   ),
                   DataTable(
@@ -361,7 +383,8 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
                       return DataRow(
                         cells: [
                           DataCell(
-                             onTap: () => showDataItemDialog(context, paginatedItems[i]),
+                            onTap: () =>
+                                showDataItemDialog(context, paginatedItems[i]),
                             paginatedItems[i].image.isNotEmpty
                                 ? ClipOval(
                                     child: Image.asset(
@@ -374,13 +397,13 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
                                 : Icon(Icons.person),
                           ),
                           DataCell(
-                            onTap: () => showDataItemDialog(context, paginatedItems[i]),
-                            Text(paginatedItems[i].beneficiaire)
-                            ),
+                              onTap: () => showDataItemDialog(
+                                  context, paginatedItems[i]),
+                              Text(paginatedItems[i].beneficiaire)),
                           DataCell(
-                            onTap: () => showDataItemDialog(context, paginatedItems[i]),
-                            Text(paginatedItems[i].capital)
-                            ),
+                              onTap: () => showDataItemDialog(
+                                  context, paginatedItems[i]),
+                              Text(paginatedItems[i].capital)),
                         ],
                       );
                     }),
@@ -441,12 +464,24 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
                 ),
                 Gap(10),
                 DataItemDetailRow(label: 'Market:', value: dataItem.marche),
-                DataItemDetailRow(label: 'Capital:', value: dataItem.capital, textColor: Color(0xfffcb92c),),
-                DataItemDetailRow(label: 'Frais de Blocage:', value: dataItem.fraisDeblocage),
-                DataItemDetailRow(label: 'Renouvellement:', value: dataItem.renouvellement),
-                DataItemDetailRow(label: 'Date de Blocage:', value: dataItem.dateDeblocage),
-                DataItemDetailRow(label: 'Number of Days:', value: dataItem.nbreJours),
-                DataItemDetailRow(label: 'Status:', value: dataItem.statut, textColor: Color(0xfffcb92c),),
+                DataItemDetailRow(
+                  label: 'Capital:',
+                  value: dataItem.capital,
+                  textColor: Color(0xfffcb92c),
+                ),
+                DataItemDetailRow(
+                    label: 'Frais de Blocage:', value: dataItem.fraisDeblocage),
+                DataItemDetailRow(
+                    label: 'Renouvellement:', value: dataItem.renouvellement),
+                DataItemDetailRow(
+                    label: 'Date de Blocage:', value: dataItem.dateDeblocage),
+                DataItemDetailRow(
+                    label: 'Number of Days:', value: dataItem.nbreJours),
+                DataItemDetailRow(
+                  label: 'Status:',
+                  value: dataItem.statut,
+                  textColor: Color(0xfffcb92c),
+                ),
               ],
             ),
           ),
@@ -458,7 +493,10 @@ class _CreditsEncoursScreenState extends State<CreditsEncoursScreen> {
               },
             ),
             TextButton(
-              child: Mytext(text:  'Supprimer', color: Colors.red,),
+              child: Mytext(
+                text: 'Supprimer',
+                color: Colors.red,
+              ),
               onPressed: () {
                 // Handle action button press
               },
@@ -475,7 +513,9 @@ class DataItemDetailRow extends StatelessWidget {
   final String value;
   Color? textColor;
 
-  DataItemDetailRow({Key? key, required this.label, required this.value, this.textColor}) : super(key: key);
+  DataItemDetailRow(
+      {Key? key, required this.label, required this.value, this.textColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -489,7 +529,10 @@ class DataItemDetailRow extends StatelessWidget {
           ),
           Gap(8),
           Expanded(
-            child: Mytext(text: value, color: textColor,),
+            child: Mytext(
+              text: value,
+              color: textColor,
+            ),
           ),
         ],
       ),

@@ -60,8 +60,6 @@ class _DashBoardState extends State<DashBoard> {
       backgroundColor: bckgr,
       body: SingleChildScrollView(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Gap(10),
             Mytext(
